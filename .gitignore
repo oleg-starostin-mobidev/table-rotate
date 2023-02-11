@@ -35,3 +35,5 @@ trash
 *.sublime-workspace
 sftp-config.json
 .idea
+
+build

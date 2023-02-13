@@ -9,9 +9,8 @@
       ],
       "declaration": true,
       "outDir": "build",
-      "rootDir": "src",
       "strict": true,
-      "types": ["node"],
+      "types": ["node", "jest"],
       "esModuleInterop": true,
       "resolveJsonModule": true,
       "typeRoots": [

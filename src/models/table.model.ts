@@ -47,17 +47,20 @@ export class TableModel {
     for (let i = 0; i < this.depth; i++) {
       const currentTableSize = this.getInsideTableSize(i);
 
+      // go through top and bottom rows
       for (let j = 0; j < currentTableSize; j++) {
         const topIndex = this.getTopElementIndex(i, j);
         let topShiftedIndex = this.getTopElementIndex(i, j + 1);
         const bottomIndex = this.getBottomElementIndex(i, j);
         let bottomShiftedIndex = this.getBottomElementIndex(i, j + 1);
 
+        // check top right and bottom left elements, as they move different
         if (j === currentTableSize - 1) {
           topShiftedIndex = this.getRightElementIndex(i, 1);
           bottomShiftedIndex = this.getLeftElementIndex(i, 1);
         }
 
+        // do nothing with array from 1 element
         if (currentTableSize === 1) {
           topShiftedIndex = topIndex;
           bottomShiftedIndex = bottomIndex;
@@ -67,6 +70,7 @@ export class TableModel {
         transformedJson[bottomShiftedIndex] = this.table[bottomIndex];
       }
 
+      // go through right and left columns
       for (let j = 1; j < currentTableSize - 1; j++) {
         const rightIndex = this.getRightElementIndex(i, j);
         const rightShiftedIndex = this.getRightElementIndex(i, j + 1);

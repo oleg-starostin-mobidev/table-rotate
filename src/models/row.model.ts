@@ -44,16 +44,18 @@ export class RowModel {
   }
 
   private getInsideTableSize(depth: number): number {
-    return this.getSize() - 2 * depth;
+    const size = this.getSize();
+    return size - 2 * depth;
   }
 
   private getTopElementIndex(depth: number, col: number): number {
-    return depth * this.getSize() + col + depth;
+    const size = this.getSize();
+    return depth * size + col + depth;
   }
 
   private getRightElementIndex(depth: number, row: number): number {
-    const currentTableSize = this.getInsideTableSize(depth);
     const size = this.getSize();
+    const currentTableSize = this.getInsideTableSize(depth);
     return depth * size + depth + currentTableSize - 1 + row * size;
   }
 
@@ -63,8 +65,8 @@ export class RowModel {
   }
 
   private getLeftElementIndex(depth: number, row: number): number {
-    const currentTableSize = this.getInsideTableSize(depth);
     const size = this.getSize();
+    const currentTableSize = this.getInsideTableSize(depth);
     return size * size - 1 - (depth * size + depth + currentTableSize - 1 + row * size);
   }
 
@@ -92,7 +94,7 @@ export class RowModel {
         }
 
         transformedJson[topShiftedIndex] = this.json[topIndex];
-        transformedJson[bottomShiftedIndex] = this.json[topIndex];
+        transformedJson[bottomShiftedIndex] = this.json[bottomIndex];
       }
 
       for (let j = 1; j < currentTableSize - 1; j++) {

@@ -32,7 +32,6 @@ class FileService {
       quoteHeaders: false,
     });
     const readFileStream = createReadStream(path.join(process.cwd(), filePath));
-    formatCsvStream.pipe(process.stdout);
     readFileStream
       .pipe(parseCsvStream)
       .on('data', (row: CsvRowInput) => {
@@ -42,6 +41,7 @@ class FileService {
       .on('error', (err: Error) => {
         handleError(err);
       });
+    formatCsvStream.pipe(process.stdout);
   }
 }
 

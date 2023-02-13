@@ -12,6 +12,8 @@ And as a result program write everything to new CSV file
 ## Run in dev environment (watch made)
 * `npm install` - install npm dependencies
 * `npm start` - start watching changes in src folder
+* `npm run lint` - run linter
+* `npm test` - run tests
 
 ## Build CLI
 * `npm install` - install npm dependencies
@@ -24,4 +26,4 @@ And as a result program write everything to new CSV file
 * Application creates build in `build` folder, but there is file in the root, called `cli.js`, which requires the source from `build` folder. 
 It is done for simplicity running the cli tool.
 * There is sample csv file in the root folder called `input.csv`, it could be used as an example of input file and also for testing application
-
+* In project used husky for pre-commit and pre-push hooks. `npm run lint` is running on each pre-commit hook and `npm test` is running on pre-push hook

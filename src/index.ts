@@ -14,7 +14,7 @@ function main() {
   }
   const filePath = path.join(process.cwd(), inputFilePath);
 
-  const readCsvStream = csvService.createReadStream(filePath);
+  const readCsvStream = csvService.createReadStream(filePath, { headers: true });
   const writeCsvStream = csvService.createWriteStream({
     headers: ['id', 'json', 'is_valid'],
     quoteColumns: { json: true },

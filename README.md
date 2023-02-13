@@ -9,7 +9,7 @@ And as a result program write everything to new CSV file
 * node.js
 * typescript
 
-## Run in dev environment (watch made)
+## Run in dev environment (watch mode)
 * `npm install` - install npm dependencies
 * `npm start` - start watching changes in src folder
 * `npm run lint` - run linter
